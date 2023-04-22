@@ -19,6 +19,7 @@ jobs:
           cache: gradle
       - name: Build, unit tests and integration tests
         run: |
+          gradle wrapper
           ./gradlew -v
           ./gradlew build
       - name: Code vulnerability scanning
