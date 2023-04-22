@@ -34,3 +34,5 @@ jobs:
         if: success() || failure()
         with:
           sarif_file: ${{ steps.scan.outputs.sarif }}
+          checkout_path: ${{ github.workspace }}
+          token: ${{ secrets.GITHUB_TOKEN }}
