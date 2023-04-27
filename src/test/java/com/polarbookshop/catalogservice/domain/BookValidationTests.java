@@ -22,14 +22,14 @@ public class BookValidationTests {
 
     @Test
     void whenAllFieldsArevalidNoError(){
-        var book = new Book("111","jaav", "Sai",111.1);
+        var book = Book.of("111","java", "Sai",111.1);
         Set<ConstraintViolation<Book>> validate = validator.validate(book);
         assertThat(validate).isEmpty();
     }
 
     @Test
     void whenISBNisNotValidThrowError(){
-        var book = new Book("","jaav", "Sai",111.1);
+        var book = Book.of("","java", "Sai",111.1);
         Set<ConstraintViolation<Book>> validations = validator.validate(book);
         assertThat(validations).isNotEmpty();
         assertThat(validations).hasSize(1);
